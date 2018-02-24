@@ -1,0 +1,39 @@
+<head><link href="../../public/css/index-842ee.css" rel="stylesheet"></head>{% extends 'layout.html' %} {% block title %}My Page{% endblock %} {% block head %} {% parent %}
+<link rel="stylesheet" href="../css/index.css">
+<script type="text/javascript" src="../scripts/index.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<!-- <script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script> -->
+<script src="https://cdn.bootcss.com/axios/0.17.1/axios.js"></script>
+<script src="https://cdn.bootcss.com/x-tag/1.5.11/x-tag-core.js"></script>
+<script src="../scripts/tags.js"></script>
+{% endblock %} {% block content %}
+<x-praise></x-praise>
+<!--  <div class="hand" id="thumb">
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger thumb"></div>
+        <div class="arm"></div>
+    </div>
+    <span class="hide" id="animation">+1</span>  -->
+
+<script type="text/javascript">
+    SystemJS.config({
+        baseURL: '../scripts'
+    });
+    SystemJS.import('index-es.js').then(function(m) {
+        $.extend({
+            thumb: m.default.Thumb
+
+        });
+        callBack();
+
+    });
+
+    function callBack() {
+        var f = new $.thumb(0, $('#thumb'));
+        f.clickAction();
+    }
+</script>
+{% endblock %}<script type="text/javascript" src="../../public/scripts/common/vendor-842ee8ee7f855b8378eb.min.js"></script><script type="text/javascript" src="../../public/scripts/index-842ee.js"></script><script type="text/javascript" src="../../public/scripts/tags-842ee.js"></script>
